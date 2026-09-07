@@ -4,16 +4,16 @@
 
 A small, portable design-token package — one teal brand scale, shared light/dark neutrals, and a handful of UI rules — meant to be dropped into any of my projects so they all look like one product.
 
-**[Open the live preview →](preview.html)** (open locally in a browser; use the switch in the nav to check dark mode)
+**[Explore Live Demo & Theme Studio →](https://imranpollob.github.io/personal-brand-theme/)**
 
 ## What's in here
 
-| File                           | Use it when…                                                                                                                                                                                                                     |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`brand.css`](brand.css)       | The project is a website or anything else that reads CSS custom properties. This is the source of truth.                                                                                                                         |
-| [`brand.json`](brand.json)     | The project can't consume CSS directly — React Native, a Figma tokens plugin, a Tailwind/JS config, email templates, etc. Same values, kept in sync by hand.                                                                     |
-| [`preview.html`](preview.html) | Interactive Brand Theme Studio & showcase (buttons, forms, alerts, cards, pricing, table…) with live palette switcher, font and pairing comparator, font-size scaler, and 1-click theme export for `brand.css` and `brand.json`. |
-| [`logo.png`](logo.png)         | The mark used in the preview's nav.                                                                                                                                                                                              |
+| File                       | Use it when…                                                                                                                                                                                                                     |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`brand.css`](brand.css)   | The project is a website or anything else that reads CSS custom properties. This is the source of truth.                                                                                                                         |
+| [`brand.json`](brand.json) | The project can't consume CSS directly — React Native, a Figma tokens plugin, a Tailwind/JS config, email templates, etc. Same values, kept in sync by hand.                                                                     |
+| [`index.html`](index.html) | Interactive Brand Theme Studio & showcase (buttons, forms, alerts, cards, pricing, table…) with live palette switcher, font and pairing comparator, font-size scaler, and 1-click theme export for `brand.css` and `brand.json`. |
+| [`logo.png`](logo.png)     | The mark used in the preview's nav.                                                                                                                                                                                              |
 
 ## Usage
 

@@ -113,7 +113,8 @@
       align-items: center;
       gap: 10px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: calc(var(--font-size-nav, 0.875rem) * 1.12);
+      transition: font-size 0.15s ease;
     }
 
     .brand img {
@@ -124,14 +125,17 @@
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
-      font-size: 0.85rem;
       color: var(--color-text-muted);
     }
 
     .nav-links a {
       color: inherit;
       text-decoration: none;
+      font-size: var(--font-size-nav, 0.875rem);
+      font-weight: 500;
+      transition: color 0.15s ease, font-size 0.15s ease;
     }
 
     .nav-links a:hover {
@@ -2081,6 +2085,17 @@
             </div>
           </div>
 
+          <!-- Menu Item Size Column -->
+          <div class="studio-col">
+            <label class="studio-label">Menu Item Size</label>
+            <div class="studio-segmented" id="menuSizeSegmented">
+              <button class="segmented-btn" data-menusize="0.75rem" title="12px (Compact)">12px</button>
+              <button class="segmented-btn active" data-menusize="0.875rem" title="14px (Standard)">14px</button>
+              <button class="segmented-btn" data-menusize="1rem" title="16px (Medium)">16px</button>
+              <button class="segmented-btn" data-menusize="1.125rem" title="18px (Large)">18px</button>
+            </div>
+          </div>
+
           <!-- Corner Radius Column -->
           <div class="studio-col">
             <label class="studio-label">Border Radius</label>
@@ -2504,6 +2519,7 @@
       headingFont: 'inter',
       bodyFont: 'inter',
       baseSize: '16px',
+      menuSize: '0.875rem',
       radius: '8px',
       isCollapsed: false,
       activeTab: 'css'
@@ -2565,6 +2581,7 @@
     const headingFontSelect = document.getElementById('headingFontSelect');
     const bodyFontSelect = document.getElementById('bodyFontSelect');
     const sizeSegmented = document.getElementById('sizeSegmented');
+    const menuSizeSegmented = document.getElementById('menuSizeSegmented');
     const radiusSegmented = document.getElementById('radiusSegmented');
     const recipeSelect = document.getElementById('recipeSelect');
     const swatchRow = document.getElementById('swatchRow');
@@ -2685,6 +2702,7 @@
   --font-heading: ${headingFont.family};
   --font-mono: 'SFMono-Regular', Consolas, 'JetBrains Mono', monospace;
   --base-font-size: ${state.baseSize};
+  --font-size-nav: ${state.menuSize || '0.875rem'};
   --radius: ${state.radius};
 }
 
@@ -2718,7 +2736,7 @@
       if (sampleAa) sampleAa.style.fontFamily = headingFont.family;
       if (sampleFam) sampleFam.textContent = `${headingFont.name} + ${bodyFont.name}`;
       if (sampleDesc) sampleDesc.textContent = `Headings set in ${headingFont.name} (${headingFont.category}), body set in ${bodyFont.name} (${bodyFont.category}). ${headingFont.desc}`;
-      if (typeDescSub) typeDescSub.textContent = `Headings: ${headingFont.name} · Body: ${bodyFont.name} · Base Size: ${state.baseSize}.`;
+      if (typeDescSub) typeDescSub.textContent = `Headings: ${headingFont.name} · Body: ${bodyFont.name} · Base: ${state.baseSize} · Menu: ${state.menuSize || '0.875rem'}.`;
 
       const typeHeadingBadge = document.getElementById('typeHeadingBadge');
       const typeBodyBadge = document.getElementById('typeBodyBadge');
@@ -2743,6 +2761,9 @@
       if (bodyFontSelect) bodyFontSelect.value = state.bodyFont;
       document.querySelectorAll('#sizeSegmented .segmented-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.size === state.baseSize);
+      });
+      document.querySelectorAll('#menuSizeSegmented .segmented-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.menusize === state.menuSize);
       });
       document.querySelectorAll('#radiusSegmented .segmented-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.radius === state.radius);
@@ -2813,6 +2834,7 @@
   --font-heading: ${headingFont.family};
   --font-mono: 'SFMono-Regular', Consolas, 'JetBrains Mono', monospace;
   --base-font-size: ${state.baseSize};
+  --font-size-nav: ${state.menuSize || '0.875rem'};
 
   /* Typography Scale */
   --font-size-xs: 0.75rem;
@@ -2904,6 +2926,7 @@
           fontHeading: headingFont.family,
           fontMono: 'SFMono-Regular, Consolas, JetBrains Mono, monospace',
           baseFontSize: state.baseSize,
+          menuFontSize: state.menuSize || '0.875rem',
           radius: state.radius,
           spacingUnit: '4px'
         },
@@ -2953,6 +2976,7 @@
       <span class="summary-pill">Heading: <b>${headingFont.name}</b></span>
       <span class="summary-pill">Body: <b>${bodyFont.name}</b></span>
       <span class="summary-pill">Base: <b>${state.baseSize}</b></span>
+      <span class="summary-pill">Menu: <b>${state.menuSize || '0.875rem'}</b></span>
       <span class="summary-pill">Radius: <b>${state.radius}</b></span>
       <span class="summary-pill">Mode: <b>${state.theme}</b></span>
     `;
@@ -3042,7 +3066,17 @@
       });
     }
 
-    // 4. Radius segmented control
+    // 4. Menu Item Size segmented control
+    if (menuSizeSegmented) {
+      menuSizeSegmented.querySelectorAll('.segmented-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.menuSize = btn.dataset.menusize;
+          applyState();
+        });
+      });
+    }
+
+    // 5. Radius segmented control
     radiusSegmented.querySelectorAll('.segmented-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         state.radius = btn.dataset.radius;
@@ -3050,7 +3084,7 @@
       });
     });
 
-    // 5. Curated Recipes dropdown
+    // 6. Curated Recipes dropdown
     RECIPES.forEach((r, idx) => {
       const opt = document.createElement('option');
       opt.value = idx;
