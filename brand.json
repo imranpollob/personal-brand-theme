@@ -27,7 +27,42 @@
   },
   "ui": {
     "fontFamily": "Inter, system-ui, sans-serif",
+    "fontHeading": "Inter, system-ui, sans-serif",
+    "fontMono": "SFMono-Regular, Consolas, JetBrains Mono, monospace",
+    "baseFontSize": "16px",
     "radius": "8px",
     "spacingUnit": "4px"
+  },
+  "typography": {
+    "sizes": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "md": "1.125rem",
+      "lg": "1.25rem",
+      "xl": "1.5rem",
+      "2xl": "1.875rem",
+      "3xl": "2.25rem",
+      "4xl": "2.75rem"
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "lineHeights": {
+      "tight": 1.15,
+      "snug": 1.35,
+      "normal": 1.55,
+      "relaxed": 1.7
+    },
+    "letterSpacing": {
+      "tight": "-0.02em",
+      "normal": "0",
+      "wide": "0.05em",
+      "widest": "0.12em"
+    }
   }
 }

@@ -8,12 +8,12 @@ A small, portable design-token package — one teal brand scale, shared light/da
 
 ## What's in here
 
-| File | Use it when… |
-|---|---|
-| [`brand.css`](brand.css) | The project is a website or anything else that reads CSS custom properties. This is the source of truth. |
-| [`brand.json`](brand.json) | The project can't consume CSS directly — React Native, a Figma tokens plugin, a Tailwind/JS config, email templates, etc. Same values, kept in sync by hand. |
-| [`preview.html`](preview.html) | A single-page showcase (buttons, forms, alerts, cards, pricing, table…) rendered with the real `brand.css`, so you can sanity-check both themes before shipping. |
-| [`logo.png`](logo.png) | The mark used in the preview's nav. |
+| File                           | Use it when…                                                                                                                                                                                                                     |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`brand.css`](brand.css)       | The project is a website or anything else that reads CSS custom properties. This is the source of truth.                                                                                                                         |
+| [`brand.json`](brand.json)     | The project can't consume CSS directly — React Native, a Figma tokens plugin, a Tailwind/JS config, email templates, etc. Same values, kept in sync by hand.                                                                     |
+| [`preview.html`](preview.html) | Interactive Brand Theme Studio & showcase (buttons, forms, alerts, cards, pricing, table…) with live palette switcher, font and pairing comparator, font-size scaler, and 1-click theme export for `brand.css` and `brand.json`. |
+| [`logo.png`](logo.png)         | The mark used in the preview's nav.                                                                                                                                                                                              |
 
 ## Usage
 
@@ -50,21 +50,23 @@ document.documentElement.removeAttribute('data-theme');        // light
 
 **Semantic** (swap value per theme):
 
-| Token | Light | Dark |
-|---|---|---|
-| `--color-primary` | `--brand-600` | `--brand-500` |
+| Token                   | Light         | Dark          |
+| ----------------------- | ------------- | ------------- |
+| `--color-primary`       | `--brand-600` | `--brand-500` |
 | `--color-primary-hover` | `--brand-700` | `--brand-400` |
-| `--color-background` | `--brand-50` | `#071311` |
-| `--color-surface` | `#f8fafc` | `#0d1f1c` |
-| `--color-text` | `#0f172a` | `#f0fdfa` |
-| `--color-text-muted` | `#64748b` | `#94a3b8` |
-| `--color-border` | `#cbd5e1` | `#1f3a35` |
-| `--color-success` | `#16a34a` | `#4ade80` |
-| `--color-warning` | `#f59e0b` | `#fbbf24` |
-| `--color-error` | `#dc2626` | `#f87171` |
-| `--color-info` | `#0284c7` | `#38bdf8` |
+| `--color-background`    | `--brand-50`  | `#071311`     |
+| `--color-surface`       | `#f8fafc`     | `#0d1f1c`     |
+| `--color-text`          | `#0f172a`     | `#f0fdfa`     |
+| `--color-text-muted`    | `#64748b`     | `#94a3b8`     |
+| `--color-border`        | `#cbd5e1`     | `#1f3a35`     |
+| `--color-success`       | `#16a34a`     | `#4ade80`     |
+| `--color-warning`       | `#f59e0b`     | `#fbbf24`     |
+| `--color-error`         | `#dc2626`     | `#f87171`     |
+| `--color-info`          | `#0284c7`     | `#38bdf8`     |
 
-**Shared UI** — `--font-family` (Inter, system-ui, sans-serif), `--radius` (8px), `--spacing-unit` (4px).
+**Typography & Scale** — `--font-family`, `--font-heading`, `--font-mono`, `--base-font-size` (16px), and the full size ramp from `--font-size-xs` (0.75rem / 12px) to `--font-size-4xl` (2.75rem / 44px), with standardized weights and line heights.
+
+**Shared UI** — `--radius` (8px), `--spacing-unit` (4px).
 
 ## The rules
 
