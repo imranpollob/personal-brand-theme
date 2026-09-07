@@ -1,0 +1,33 @@
+{
+  "brand": {
+    "primary": "#0D9488",
+    "primaryDark": "#14B8A6"
+  },
+  "light": {
+    "background": "#ECFDFB",
+    "surface": "#F8FAFC",
+    "text": "#0F172A",
+    "muted": "#64748B",
+    "border": "#CBD5E1",
+    "success": "#16A34A",
+    "warning": "#F59E0B",
+    "error": "#DC2626",
+    "info": "#0284C7"
+  },
+  "dark": {
+    "background": "#071311",
+    "surface": "#0D1F1C",
+    "text": "#F0FDFA",
+    "muted": "#94A3B8",
+    "border": "#1F3A35",
+    "success": "#4ADE80",
+    "warning": "#FBBF24",
+    "error": "#F87171",
+    "info": "#38BDF8"
+  },
+  "ui": {
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "radius": "8px",
+    "spacingUnit": "4px"
+  }
+}
