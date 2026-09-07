@@ -77,9 +77,9 @@ document.documentElement.removeAttribute('data-theme');        // light
 - `--font-heading`: `'Playfair Display', Georgia, serif`
 - `--font-family`: `'Plus Jakarta Sans', system-ui, -apple-system, sans-serif`
 - `--font-mono`: `'SFMono-Regular', Consolas, 'JetBrains Mono', monospace`
-- `--base-font-size`: `18px`
-- `--font-size-nav`: `0.875rem` (15.75px)
-- Full size ramp from `--font-size-xs` (0.75rem / 13.5px) to `--font-size-4xl` (2.75rem / 49.5px)
+- `--base-font-size`: `16px`
+- `--font-size-nav`: `0.875rem` (14px)
+- Full size ramp from `--font-size-xs` (0.75rem / 12px) to `--font-size-4xl` (2.75rem / 44px)
 
 **Shared UI**:
 - `--radius`: `8px`
@@ -91,7 +91,7 @@ Every project that pulls from this theme follows the same design principles:
 
 1. **Teal is the signature color**: `#0d9488` is the primary interactive accent in light mode; `#14b8a6` in dark mode.
 2. **Editorial typography pairing**: Playfair Display for authoritative, elegant headings; Plus Jakarta Sans for crisp, modern body interfaces.
-3. **18px base font size**: Calibrated for comfortable reading on high-DPI displays.
+3. **16px base font size**: The standard web baseline calibrated for comfortable, balanced reading across all screen sizes.
 4. **Shared neutral tokens**: Surfaces, borders, and text values come strictly from the tokens — no rogue grays.
 5. **8px default corner radius**: Subtle, modern curvature across buttons, cards, and inputs.
 6. **4px grid unit**: All padding, margins, and gaps are multiples of 4px.

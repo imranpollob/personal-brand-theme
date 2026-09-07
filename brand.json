@@ -44,7 +44,7 @@
     "fontFamily": "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
     "fontHeading": "'Playfair Display', Georgia, serif",
     "fontMono": "'SFMono-Regular', Consolas, 'JetBrains Mono', monospace",
-    "baseFontSize": "18px",
+    "baseFontSize": "16px",
     "fontSizeNav": "0.875rem",
     "radius": "8px",
     "spacingUnit": "4px"
