@@ -42,7 +42,7 @@
   },
   "ui": {
     "fontFamily": "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
-    "fontHeading": "'Playfair Display', Georgia, serif",
+    "fontHeading": "'Outfit', system-ui, -apple-system, sans-serif",
     "fontMono": "'SFMono-Regular', Consolas, 'JetBrains Mono', monospace",
     "baseFontSize": "16px",
     "fontSizeNav": "0.875rem",
