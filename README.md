@@ -14,6 +14,7 @@ A small, portable design-token package — one teal brand scale, Outfit and Plus
 | [`brand.json`](brand.json) | The project consumes JSON tokens — React Native, a Figma tokens plugin, a Tailwind/JS config, email templates, etc. Same values, kept in sync.                                               |
 | [`index.html`](index.html) | The official **Brand Style Showcase** demonstrating the signature style (palette swatches with click-to-copy, typography specimen, UI component system, data table, and integration guides). |
 | [`logo.png`](logo.png)     | The signature brand mark.                                                                                                                                                                    |
+| [`launcher.js`](launcher.js), [`launcher.css`](launcher.css), [`tools.json`](tools.json) | The **tools launcher** — a waffle button that opens a grid of all my tools. See below. |
 
 ## Usage
 
@@ -51,6 +52,20 @@ Toggle it at runtime with JS:
 document.documentElement.setAttribute('data-theme', 'dark');   // dark
 document.documentElement.removeAttribute('data-theme');        // light
 ```
+
+## Tools launcher
+
+Add the all-tools menu to any site:
+
+```html
+<link rel="stylesheet" href="https://imranpollob.github.io/personal-brand-theme/launcher.css">
+<script src="https://imranpollob.github.io/personal-brand-theme/launcher.js" defer></script>
+
+<!-- optional: place the button in your header (otherwise it floats top-left) -->
+<span data-brand-launcher></span>
+```
+
+The tool list lives in [`tools.json`](tools.json) — edit it once and every site updates. Each entry has `title`, `url`, `type` (`online` / `install`), `priority`, and the tile styling fields `hue` (0–360) and `glyph` (emoji). Starred tools (saved in `localStorage`) are listed first; stars are per-origin, so they don't carry across different domains.
 
 ## Tokens
 
