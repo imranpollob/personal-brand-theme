@@ -65,7 +65,7 @@ Add the all-tools menu to any site:
 <span data-brand-launcher></span>
 ```
 
-The tool list lives in [`tools.json`](tools.json) — edit it once and every site updates. Each entry has `title`, `url`, `type` (`online` / `install`), `priority`, and the tile styling fields `hue` (0–360) and `glyph` (emoji). Starred tools (saved in `localStorage`) are listed first; stars are per-origin, so they don't carry across different domains.
+The tool list lives in [`tools.json`](tools.json) — edit it once and every site updates. The menu groups tools under their `category` headings (a "Starred" group comes first), ordered by `priority`; categories appear in the order of their first tool. Each entry has `title`, `url`, `category`, `type` (`online` / `install`), `priority`, and the tile styling fields `hue` (0–360) and `glyph` (emoji). Starred tools (saved in `localStorage`) are listed first; stars are per-origin, so they don't carry across different domains.
 
 ## Tokens
 

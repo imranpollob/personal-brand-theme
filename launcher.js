@@ -30,12 +30,21 @@
     [5, 12, 19].flatMap(y => [5, 12, 19].map(x => `<circle cx="${x}" cy="${y}" r="1.7"/>`)).join('') + '</g></svg>';
   const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.6l-5.8 3.1 1.1-6.5L2.6 9.6l6.5-.9z" stroke-linejoin="round"/></svg>';
 
-  // Homepage order: web tools first, then installables, each by priority.
+  // Order by priority; categories appear in the order their first tool does.
   const byPriority = (a, b) => (a.priority ?? Infinity) - (b.priority ?? Infinity);
-  const order = tools => [
-    ...tools.filter(t => t.type === 'online').sort(byPriority),
-    ...tools.filter(t => t.type === 'install').sort(byPriority),
-  ];
+  const order = tools => [...tools].sort(byPriority);
+  const groupByCategory = tools => {
+    const groups = new Map();
+    for (const t of tools) {
+      const name = t.category || 'Tools';
+      if (!groups.has(name)) groups.set(name, []);
+      groups.get(name).push(t);
+    }
+    return groups;
+  };
+  const section = (name, items, starred) =>
+    `<h3 class="bl-category">${esc(name)}</h3>` +
+    items.map(t => tile(t, starred.has(t.repo))).join('');
 
   const tile = (t, starred) =>
     `<div class="bl-tile" style="--hue: ${Number(t.hue) || 170}">` +
@@ -71,14 +80,17 @@
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-label', 'All tools');
     panel.hidden = true;
-    panel.innerHTML = `<p class="bl-title">All tools <span class="bl-count">${list.length}</span></p><div class="bl-grid"></div>`;
+    panel.innerHTML = '<div class="bl-grid"></div>';
     document.body.append(backdrop, panel);
     const grid = panel.querySelector('.bl-grid');
 
     const render = () => {
       const set = new Set(stars);
-      const sorted = [...list.filter(t => set.has(t.repo)), ...list.filter(t => !set.has(t.repo))];
-      grid.innerHTML = sorted.map(t => tile(t, set.has(t.repo))).join('');
+      const starredTools = list.filter(t => set.has(t.repo));
+      const groups = groupByCategory(list.filter(t => !set.has(t.repo)));
+      grid.innerHTML =
+        (starredTools.length ? section('Starred', starredTools, set) : '') +
+        [...groups].map(([name, items]) => section(name, items, set)).join('');
     };
     render();
 
